@@ -32,5 +32,8 @@ jobs:
         key: ${{ secrets.QA_SERVER_PRIVATE_KEY }}
         passphrase: ${{ secrets.QA_SERVER_PASSPHRASE }}
         port: ${{ secrets.QA_SERVER_PORT }}
-        script: ./app/run.sh
+        script: |
+            ls -al
+            chmod +x /app/run.sh
+            ./app/run.sh
         debug: true
