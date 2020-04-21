@@ -13,3 +13,6 @@ services:
       - xmexico_net
     ports:
       - 3306:3306
+
+volumes:
+  db_data:
