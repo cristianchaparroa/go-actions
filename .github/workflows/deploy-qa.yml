@@ -33,3 +33,4 @@ jobs:
         passphrase: ${{ secrets.QA_SERVER_PASSPHRASE }}
         port: ${{ secrets.QA_SERVER_PORT }}
         script: whoami
+        debug: true
