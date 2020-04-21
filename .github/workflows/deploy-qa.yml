@@ -24,12 +24,11 @@ jobs:
         source: "."
         target: "/app"
 
-    - name: Build the container and run
+    - name: Build the container and run it.
       uses: appleboy/ssh-action@master
       with:
-        host: ${{secrets.QA_SERVER_HOST}}
-        username: ${{secrets.SERVER_USERNAME}}
-        port: ${{secrets.QA_SERVER_PORT}}
-        key: ${{secrets.QA_SERVER_PRIVATE_KEY}}
-        passphrase: ${{secrets.QA_SERVER_PASSPHRASE}}
-        script:  whoami
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.QA_SERVER_USERNAME }}
+        key: ${{ secrets.QA_SERVER_PRIVATE_KEY }}
+        port: ${{ secrets.PORT }}
+        script: whoami
