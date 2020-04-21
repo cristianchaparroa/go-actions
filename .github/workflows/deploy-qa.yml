@@ -32,5 +32,5 @@ jobs:
         key: ${{ secrets.QA_SERVER_PRIVATE_KEY }}
         passphrase: ${{ secrets.QA_SERVER_PASSPHRASE }}
         port: ${{ secrets.QA_SERVER_PORT }}
-        script: whoami
+        script: docker-compose up --build
         debug: true
