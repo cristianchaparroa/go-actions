@@ -30,6 +30,6 @@ jobs:
         host: ${{secrets.QA_SERVER_HOST}}
         USERNAME: ${{secrets.SERVER_USERNAME}}
         PORT: ${{secrets.QA_SERVER_PORT}}
-        KEY: ${{secrets.QA_SERVER_KEY}}
-        passphrase: ${{secrets.QA_SERVER_PASSPHRASE}}
+        KEY: ${{secrets.QA_SERVER_PRIVATE_KEY}}
+        PASSPHRASE: ${{secrets.QA_SERVER_PASSPHRASE}}
         script:  ./app/run.sh
