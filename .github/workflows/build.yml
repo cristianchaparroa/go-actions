@@ -23,6 +23,8 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Get dependencies
+      env:
+        GOPROXY: "https://proxy.golang.org"
       run: go mod tidy
 
     - name: Build
