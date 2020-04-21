@@ -18,7 +18,7 @@ jobs:
         HOST: ${{secrets.QA_SERVER_HOST}}
         USERNAME: ${{secrets.QA_SERVER_USERNAME}}
         PORT: ${{secrets.QA_SERVER_PORT}}
-        password: ${{secrets.QA_SERVER_PASSWORD}}
+        PASSWORD: ${{secrets.QA_SERVER_PASSWORD}}
       with:
         source: "."
         target: "/app"
