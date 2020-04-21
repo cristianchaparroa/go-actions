@@ -1,4 +1,4 @@
-name : Build and Test
+name : Test
 on:
   push:
     branches:
@@ -19,6 +19,6 @@ jobs:
 
     - name : Go mod Install
       run : go mod tidy
-      
+
     - name: Test
       run: go test ./...
