@@ -33,7 +33,5 @@ jobs:
         passphrase: ${{ secrets.QA_SERVER_PASSPHRASE }}
         port: ${{ secrets.QA_SERVER_PORT }}
         script: |
-            ls -al
-            chmod +x /opt/app/run.sh
             sh /opt/app/run.sh
         debug: true
