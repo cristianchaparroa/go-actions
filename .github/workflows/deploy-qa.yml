@@ -22,7 +22,7 @@ jobs:
         PASSPHRASE: ${{secrets.QA_SERVER_PASSPHRASE}}
       with:
         source: "."
-        target: "/app"
+        target: "/opt/app"
 
     - name: Build the container and run it.
       uses: appleboy/ssh-action@master
@@ -34,6 +34,6 @@ jobs:
         port: ${{ secrets.QA_SERVER_PORT }}
         script: |
             ls -al
-            chmod +x /app/run.sh
-            ./app/run.sh
+            chmod +x /opt/app/run.sh
+            ./opt/app/run.sh
         debug: true
