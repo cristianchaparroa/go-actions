@@ -14,5 +14,10 @@ services:
     ports:
       - 3306:3306
 
+networks:
+  merlin_net:
+    name: xmexico_net
+    driver: bridge
+
 volumes:
   db_data:
