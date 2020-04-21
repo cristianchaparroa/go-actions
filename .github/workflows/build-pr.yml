@@ -1,4 +1,4 @@
-name: Build and Test
+name: QA - Peer Review
 
 on:
   pull_request:

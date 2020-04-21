@@ -28,8 +28,8 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{secrets.QA_SERVER_HOST}}
-        USERNAME: ${{secrets.SERVER_USERNAME}}
-        PORT: ${{secrets.QA_SERVER_PORT}}
-        KEY: ${{secrets.QA_SERVER_PRIVATE_KEY}}
-        PASSPHRASE: ${{secrets.QA_SERVER_PASSPHRASE}}
+        username: ${{secrets.SERVER_USERNAME}}
+        port: ${{secrets.QA_SERVER_PORT}}
+        key: ${{secrets.QA_SERVER_PRIVATE_KEY}}
+        passphrase: ${{secrets.QA_SERVER_PASSPHRASE}}
         script:  ./app/run.sh
