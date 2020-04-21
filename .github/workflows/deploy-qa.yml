@@ -19,6 +19,7 @@ jobs:
         USERNAME: ${{secrets.QA_SERVER_USERNAME}}
         PORT: ${{secrets.QA_SERVER_PORT}}
         KEY: ${{secrets.QA_SERVER_PRIVATE_KEY}}
+        PASSPHRASE: ${{secrets.QA_SERVER_PASSPHRASE}}
       with:
         source: "."
         target: "/app"
