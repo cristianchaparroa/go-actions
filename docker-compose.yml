@@ -15,7 +15,7 @@ services:
       - 3306:3306
 
 networks:
-  merlin_net:
+  xmexico_net:
     name: xmexico_net
     driver: bridge
 
