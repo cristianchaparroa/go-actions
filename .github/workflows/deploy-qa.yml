@@ -32,4 +32,4 @@ jobs:
         port: ${{secrets.QA_SERVER_PORT}}
         key: ${{secrets.QA_SERVER_PRIVATE_KEY}}
         passphrase: ${{secrets.QA_SERVER_PASSPHRASE}}
-        script:  ./app/run.sh
+        script:  whoami
