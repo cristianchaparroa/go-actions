@@ -2,4 +2,4 @@
 cd  /opt/app/
 ls -al
 chmod +x run.sh
-docker-compose up --build
+docker-compose up --build -d
