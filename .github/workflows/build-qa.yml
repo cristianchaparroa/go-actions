@@ -39,3 +39,15 @@ jobs:
 
     - name: Test
       run: go test ./...
+      
+    - name: coverage
+      run: |
+            go test -coverprofile=c.out
+            go tool cover -html=c.out -o coverage.html
+            cat c.out >> coverage.txt
+      
+    - name: Upload Coverage report to CodeCov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{secrets.CODECOV_TOKEN}}
+        file: ./coverage.txt
