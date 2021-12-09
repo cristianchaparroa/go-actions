@@ -52,7 +52,7 @@ jobs:
       if: always()
       uses: yuzutech/annotations-action@v0.3.0
       with:
-        repo-token: "${{ secrets.GA_TOKEN }}"
+        repo-token: "${{ secrets.GA_SECRET }}"
         input: ./annotations.json
         
     - name: Build
