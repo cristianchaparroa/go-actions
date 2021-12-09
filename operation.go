@@ -2,14 +2,13 @@ package main
 
 import "fmt"
 
-func sum(a,b int)
-int {
-	return a + b
+func sum(a,b int) int {
+ return a + b
 }
 
 func IsError() bool {
 	is, _  := retError()
-	return is
+   return is
 }
 
 func retError() (bool, error) {
