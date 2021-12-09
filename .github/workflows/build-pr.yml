@@ -37,15 +37,19 @@ jobs:
       env:
         GOPROXY: "https://proxy.golang.org"
       run: go mod tidy
-    - name: golangci-lint
-      uses: golangci/golangci-lint-action@v2
+
+    - name: Run golangci-lint
+      run: |
+        $(go env GOPATH)/bin/golangci-lint run --issues-exit-code=0 --out-format=json > lint.json
+        jq '[.Issues[] | {file: .Pos.Filename, line: .Pos.Line, title: .FromLinter, message: .Text}]' lint.json > ./annotations.json
+        cat ./annotations.json
+
+    - name: Annotate
+      if: always()
+      uses: yuzutech/annotations-action@v0.3.0
       with:
-        # Required: the version of golangci-lint is required and must be specified without patch version: we always use the latest patch version.
-        version: v1.29
-        # Optional: show only new issues if it's a pull request. The default value is `false`.
-        only-new-issues: true
-        # Optional: if set to true then the action will use pre-installed Go.
-        skip-go-installation: true
+      repo-token: "${{ secrets.GA_TOKEN }}"
+      input: ./annotations.json
         
     - name: Build
       run: go build -v .
