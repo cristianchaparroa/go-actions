@@ -42,11 +42,11 @@ jobs:
     - name: Run golangci-lint
       run: |
         $(go env GOPATH)/bin/golangci-lint run --issues-exit-code=0 --out-format=json > lint.json
-        jq '[.Issues[] | {file: .Pos.Filename, line: .Pos.Line, title: .FromLinter, message: .Text}]' lint.json > ./annotations.json
+        jq '[.Issues[] | {path: .Pos.Filename, start_line: .Pos.Line, end_line: .Pos.Line, start_column: .Pos.Column, end_column: .Pos.Column , title: .FromLinter, message: .Text, raw_details: .Text, "annotation_level": "warning"}]' lint.json > ./annotations.json
         cat ./annotations.json
 
     - name: Annotate
-      uses: yuzutech/annotations-action@v0.2.0
+      uses: yuzutech/annotations-action@v0.3.0
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         input: './annotations.json'
