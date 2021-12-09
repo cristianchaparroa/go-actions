@@ -48,8 +48,8 @@ jobs:
       if: always()
       uses: yuzutech/annotations-action@v0.3.0
       with:
-      repo-token: "${{ secrets.GA_TOKEN }}"
-      input: ./annotations.json
+        repo-token: "${{ secrets.GA_TOKEN }}"
+        input: ./annotations.json
         
     - name: Build
       run: go build -v .
