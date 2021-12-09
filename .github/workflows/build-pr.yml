@@ -49,11 +49,11 @@ jobs:
         cat ./annotations.json
 
     - name: Annotate
-      if: always()
-      uses: yuzutech/annotations-action@v0.3.0
+      uses: yuzutech/annotations-action@v0.1.0
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        input: ./annotations.json
+        title: 'lint'
+        input: './annotations.json'
         
     - name: Build
       run: go build -v .
