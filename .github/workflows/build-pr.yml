@@ -49,10 +49,9 @@ jobs:
         cat ./annotations.json
 
     - name: Annotate
-      uses: yuzutech/annotations-action@v0.1.0
+      uses: yuzutech/annotations-action@v0.3.0
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        title: 'lint'
         input: './annotations.json'
         
     - name: Build
