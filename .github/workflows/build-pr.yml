@@ -58,7 +58,6 @@ jobs:
         script: |
           const fs = require('fs');
           let rawdata = fs.readFileSync('./annotations.json', 'utf-8');
-          console.log(rawdata);
           let issues = JSON.parse(rawdata);
           console.log(issues);
 
