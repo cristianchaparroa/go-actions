@@ -62,12 +62,15 @@ jobs:
           console.log(comments);
 
           for (const c of comments) {
-            console.log(c.message);
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: c.message,
+              position: c.start_line,
+              path: c.path
+            })
           }
-
-          console.log(github);
-          console.log(github);
-          console.log(github.rest.issues);
 
 
     - name: Build
