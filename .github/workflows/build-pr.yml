@@ -65,6 +65,8 @@ jobs:
             console.log(c.message);
           }
 
+          console.log(github.rest.issues);
+
 
     - name: Build
       run: go build -v .
