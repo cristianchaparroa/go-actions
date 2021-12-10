@@ -60,7 +60,7 @@ jobs:
           let rawdata = fs.readFileSync('./annotations.json', 'utf-8');
           let issues = JSON.parse(rawdata);
 
-          for (const issues of issues) {
+          for (const issue of issues) {
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
