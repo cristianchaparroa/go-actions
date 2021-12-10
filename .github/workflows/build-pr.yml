@@ -58,17 +58,17 @@ jobs:
         script: |
           const fs = require('fs');
           let rawdata = fs.readFileSync('./annotations.json', 'utf-8');
-          let issues = JSON.parse(rawdata);
-          console.log(issues);
+          let comments = JSON.parse(rawdata);
+          console.log(comments);
 
-          for (const issue of issues) {
+          for (const c of comments) {
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: issue.message,
-              position: issue.start_line,
-              path: issue.path
+              body: c.message,
+              position: c.start_line,
+              path: c.path
             })
           }
 
