@@ -50,7 +50,26 @@ jobs:
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         input: './annotations.json'
-        
+
+    - name: Write comments
+      uses: actions/github-script@v2
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          const fs = require('fs');
+          const path = require('path');
+          let rawdata = fs.readFileSync(path.resolve(__dirname, 'student.json'));
+          let issues = JSON.parse(rawdata);
+
+          await github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: issue.message,
+            position: issue.start_line,
+            path: issue.path
+          })
+
     - name: Build
       run: go build -v .
     
@@ -77,4 +96,4 @@ jobs:
         uses: codecov/codecov-action@v1.0.0
         with:
           token: ${{secrets.CODECOV_TOKEN}}
-          file: ./coverage.txt 
+          file: ./coverage.txt
