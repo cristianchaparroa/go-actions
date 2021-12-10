@@ -57,8 +57,7 @@ jobs:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
           const fs = require('fs');
-          const path = require('path');
-          let rawdata = fs.readFileSync(path.resolve(__dirname, 'student.json'));
+          let rawdata = fs.readFileSync('./annotations.json', 'utf-8');
           let issues = JSON.parse(rawdata);
 
           await github.rest.issues.createComment({
